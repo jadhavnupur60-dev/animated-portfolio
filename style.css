@@ -1,8 +1,10 @@
 
-/* =================================
+/* =========================================
    ACCESSIBLE ANIMATED PORTFOLIO
-   Modern Purple & Navy Theme
-================================= */
+   Purple and Navy Theme
+========================================= */
+
+/* GLOBAL RESET */
 
 * {
     margin: 0;
@@ -22,9 +24,7 @@ body {
     min-height: 100vh;
 }
 
-/* =================================
-   SKIP LINK
-================================= */
+/* SKIP TO MAIN CONTENT */
 
 .skip-link {
     position: absolute;
@@ -39,13 +39,12 @@ body {
     text-decoration: none;
 }
 
-.skip-link:focus {
+.skip-link:focus,
+.skip-link:focus-visible {
     top: 15px;
 }
 
-/* =================================
-   HERO SECTION
-================================= */
+/* HERO SECTION */
 
 .hero {
     min-height: 370px;
@@ -62,7 +61,12 @@ body {
             #5735a8 0%,
             transparent 45%
         ),
-        linear-gradient(135deg, #19143c, #30205d, #15152f);
+        linear-gradient(
+            135deg,
+            #19143c,
+            #30205d,
+            #15152f
+        );
 
     border-bottom: 1px solid #55418c;
 }
@@ -74,7 +78,6 @@ body {
     margin-bottom: 18px;
     color: #ffffff;
     line-height: 1.2;
-    text-shadow: 0 4px 25px rgba(0, 0, 0, 0.25);
 }
 
 .hero p {
@@ -83,22 +86,34 @@ body {
     color: #eee9ff;
 }
 
-/* =================================
-   PORTFOLIO CONTAINER
-================================= */
+/* PORTFOLIO CONTAINER */
 
 .portfolio-container {
     width: min(1150px, 90%);
     margin: 70px auto;
+
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 30px;
+
     scroll-margin-top: 25px;
 }
 
-/* =================================
-   PROJECT CARDS
-================================= */
+/* VISUALLY HIDDEN HEADING */
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* PROJECT CARDS */
 
 .project-card {
     background: #211d3d;
@@ -108,13 +123,21 @@ body {
 
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
 
+    opacity: 0;
+    transform: translateY(25px);
+
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease,
-        border-color 0.3s ease;
+        border-color 0.3s ease,
+        opacity 0.7s ease;
+}
 
-    animation: fadeUp 0.7s ease both;
-    animation-delay: calc(var(--order, 1) * 0.15s);
+/* ANIMATION WHEN CARD ENTERS VIEW */
+
+.project-card.in-view {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .project-card:hover {
@@ -124,9 +147,7 @@ body {
     box-shadow: 0 20px 45px rgba(102, 68, 190, 0.25);
 }
 
-/* =================================
-   PROJECT IMAGES
-================================= */
+/* PROJECT IMAGES */
 
 .project-image-wrapper {
     height: 220px;
@@ -147,9 +168,7 @@ body {
     transform: scale(1.07);
 }
 
-/* =================================
-   PROJECT CONTENT
-================================= */
+/* PROJECT CONTENT */
 
 .project-content {
     padding: 25px;
@@ -158,9 +177,9 @@ body {
 .tag {
     display: inline-block;
     background: #41316c;
-    color: #e4d7ff;
+    color: #ffffff;
 
-    border: 1px solid #8164bd;
+    border: 1px solid #a58bd8;
     padding: 6px 13px;
 
     border-radius: 30px;
@@ -171,7 +190,9 @@ body {
     margin-bottom: 17px;
 }
 
-.project-content h2 {
+/* IMPORTANT: HTML USES H3 */
+
+.project-content h3 {
     font-size: 1.35rem;
     line-height: 1.4;
     color: #ffffff;
@@ -179,29 +200,20 @@ body {
 }
 
 .project-content p {
-    color: #e0dcf0;
+    color: #f0edf8;
     font-size: 0.96rem;
 }
 
-/* =================================
-   ANIMATIONS
-================================= */
+/* KEYBOARD ACCESSIBILITY */
 
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(25px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+:focus {
+    outline: 3px solid #ffd166;
+    outline-offset: 4px;
 }
 
-/* =================================
-   KEYBOARD ACCESSIBILITY
-================================= */
+:focus:not(:focus-visible) {
+    outline: none;
+}
 
 a:focus-visible,
 button:focus-visible,
@@ -211,11 +223,10 @@ select:focus-visible,
 [tabindex]:focus-visible {
     outline: 3px solid #ffd166;
     outline-offset: 5px;
+    border-radius: 4px;
 }
 
-/* =================================
-   FOOTER
-================================= */
+/* FOOTER */
 
 .footer {
     text-align: center;
@@ -224,13 +235,11 @@ select:focus-visible,
     background: #19152f;
     border-top: 1px solid #55418c;
 
-    color: #e6e0f5;
+    color: #f0edf8;
     font-size: 0.95rem;
 }
 
-/* =================================
-   TABLET RESPONSIVENESS
-================================= */
+/* TABLET RESPONSIVENESS */
 
 @media (max-width: 900px) {
 
@@ -244,9 +253,7 @@ select:focus-visible,
     }
 }
 
-/* =================================
-   MOBILE RESPONSIVENESS
-================================= */
+/* MOBILE RESPONSIVENESS */
 
 @media (max-width: 600px) {
 
@@ -279,25 +286,28 @@ select:focus-visible,
     }
 }
 
-/* =================================
-   REDUCED MOTION ACCESSIBILITY
-================================= */
+/* REDUCED MOTION ACCESSIBILITY */
 
 @media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto !important;
+    }
 
     *,
     *::before,
     *::after {
+        animation: none !important;
+        transition: none !important;
         scroll-behavior: auto !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
     }
 
-    .project-card:hover {
+    .project-card {
+        opacity: 1;
         transform: none;
     }
 
+    .project-card:hover,
     .project-card:hover .project-image-wrapper img {
         transform: none;
     }

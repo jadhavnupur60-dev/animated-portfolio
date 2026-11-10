@@ -6,150 +6,173 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="Explore a creative portfolio showcasing web development, productivity applications, and interactive projects.">
+    <meta
+        name="description"
+        content="Explore an accessible animated portfolio featuring web development and interactive projects."
+    >
 
-    <title>Accessible Animated Portfolio Showcase</title>
+    <meta name="theme-color" content="#101024">
+
+    <title>Animated Portfolio | Creative Project Showcase</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Skip to main content link -->
+    <!-- Skip Navigation -->
     <a href="#main-content" class="skip-link">
         Skip to main content
     </a>
 
-    <!-- Website Header -->
-    <header class="hero" role="banner">
+    <!-- Header -->
+    <header class="hero">
 
         <h1>My Creative Portfolio</h1>
 
         <p>
-            Explore my latest featured projects with interactive
-            scroll animations and stunning visuals.
+            Explore my featured projects showcasing web development,
+            creativity, productivity, and interactive experiences.
         </p>
 
     </header>
 
-    <!-- Main Portfolio Content -->
-    <main id="main-content"
-          class="portfolio-container"
-          role="main"
-          aria-label="Portfolio projects">
+    <!-- Main Content -->
+    <main id="main-content">
 
-        <!-- Project 1 -->
-        <section class="project-card animate-on-scroll"
-                 style="--order: 1;"
-                 aria-labelledby="project-one-title">
+        <!-- Projects Section -->
+        <section
+            class="portfolio-container"
+            aria-labelledby="projects-heading"
+        >
 
-            <div class="project-image-wrapper">
+            <h2 id="projects-heading" class="visually-hidden">
+                Featured Projects
+            </h2>
 
-                <img
-                    src="https://picsum.photos/seed/ecommerce/600/400"
-                    alt="Preview image for the E-Commerce Platform project"
-                    width="600"
-                    height="400"
-                    loading="lazy"
-                >
+            <!-- Project 1 -->
+            <article
+                class="project-card animate-on-scroll"
+                aria-labelledby="project-one-title"
+            >
 
-            </div>
+                <div class="project-image-wrapper">
 
-            <div class="project-content">
+                    <img
+                        src="https://picsum.photos/seed/ecommerce/600/400"
+                        alt="Illustrative preview of an e-commerce platform"
+                        width="600"
+                        height="400"
+                        loading="lazy"
+                    >
 
-                <span class="tag">Full-Stack Development</span>
+                </div>
 
-                <h2 id="project-one-title">
-                    Project One: E-Commerce Platform
-                </h2>
+                <div class="project-content">
 
-                <p>
-                    A fully responsive online store built with modern
-                    web technologies, featuring seamless user
-                    authentication and cart management.
-                </p>
+                    <span class="tag">
+                        Full-Stack Development
+                    </span>
 
-            </div>
+                    <h3 id="project-one-title">
+                        Project One: E-Commerce Platform
+                    </h3>
 
-        </section>
+                    <p>
+                        A responsive online store concept featuring
+                        user authentication, product browsing,
+                        and shopping cart management.
+                    </p>
 
-        <!-- Project 2 -->
-        <section class="project-card animate-on-scroll"
-                 style="--order: 2;"
-                 aria-labelledby="project-two-title">
+                </div>
 
-            <div class="project-image-wrapper">
+            </article>
 
-                <img
-                    src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80"
-                    alt="Preview image for the Task Management App project"
-                    width="600"
-                    height="400"
-                    loading="lazy"
-                >
+            <!-- Project 2 -->
+            <article
+                class="project-card animate-on-scroll"
+                aria-labelledby="project-two-title"
+            >
 
-            </div>
+                <div class="project-image-wrapper">
 
-            <div class="project-content">
+                    <img
+                        src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80"
+                        alt="Workspace preview representing a task management application"
+                        width="600"
+                        height="400"
+                        loading="lazy"
+                    >
 
-                <span class="tag">Productivity Tool</span>
+                </div>
 
-                <h2 id="project-two-title">
-                    Project Two: Task Management App
-                </h2>
+                <div class="project-content">
 
-                <p>
-                    An intuitive productivity application designed
-                    to help teams track workflows, deadlines,
-                    and project milestones efficiently.
-                </p>
+                    <span class="tag">
+                        Productivity Tool
+                    </span>
 
-            </div>
+                    <h3 id="project-two-title">
+                        Project Two: Task Management App
+                    </h3>
 
-        </section>
+                    <p>
+                        An intuitive productivity application concept
+                        designed to help teams track workflows,
+                        deadlines, and project milestones.
+                    </p>
 
-        <!-- Project 3 -->
-        <section class="project-card animate-on-scroll"
-                 style="--order: 3;"
-                 aria-labelledby="project-three-title">
+                </div>
 
-            <div class="project-image-wrapper">
+            </article>
 
-                <img
-                    src="https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&w=600&q=80"
-                    alt="Preview image for the Weather Dashboard project"
-                    width="600"
-                    height="400"
-                    loading="lazy"
-                >
+            <!-- Project 3 -->
+            <article
+                class="project-card animate-on-scroll"
+                aria-labelledby="project-three-title"
+            >
 
-            </div>
+                <div class="project-image-wrapper">
 
-            <div class="project-content">
+                    <img
+                        src="https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&w=600&q=80"
+                        alt="Weather landscape representing a weather dashboard"
+                        width="600"
+                        height="400"
+                        loading="lazy"
+                    >
 
-                <span class="tag">API Integration</span>
+                </div>
 
-                <h2 id="project-three-title">
-                    Project Three: Weather Dashboard
-                </h2>
+                <div class="project-content">
 
-                <p>
-                    A real-time weather tracking widget utilizing
-                    external APIs for accurate forecasts, hourly
-                    breakdowns, and local caching.
-                </p>
+                    <span class="tag">
+                        API Integration
+                    </span>
 
-            </div>
+                    <h3 id="project-three-title">
+                        Project Three: Weather Dashboard
+                    </h3>
+
+                    <p>
+                        A weather dashboard concept designed to
+                        display forecasts, hourly weather details,
+                        and local weather information.
+                    </p>
+
+                </div>
+
+            </article>
 
         </section>
 
     </main>
 
-    <!-- Website Footer -->
-    <footer class="footer" role="contentinfo">
+    <!-- Footer -->
+    <footer class="footer">
 
         <p>
-            &copy; 2026 Portfolio Showcase. All rights reserved.
+            &copy; 2026 Animated Portfolio. All rights reserved.
         </p>
 
     </footer>
@@ -158,4 +181,5 @@
     <script src="script.js" defer></script>
 
 </body>
+
 </html>
