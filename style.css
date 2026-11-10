@@ -1,94 +1,137 @@
-/* Reset & Base Styles */
+
+/* =================================
+   ACCESSIBLE ANIMATED PORTFOLIO
+   Modern Purple & Navy Theme
+================================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #0b0f19;
-    color: #f8fafc;
-    line-height: 1.6;
-    overflow-x: hidden;
+html {
+    scroll-behavior: smooth;
 }
 
-/* Hero Section */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #101024;
+    color: #f5f3ff;
+    line-height: 1.7;
+    min-height: 100vh;
+}
+
+/* =================================
+   SKIP LINK
+================================= */
+
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 15px;
+    z-index: 9999;
+    background: #ffffff;
+    color: #21104f;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.skip-link:focus {
+    top: 15px;
+}
+
+/* =================================
+   HERO SECTION
+================================= */
+
 .hero {
-    height: 50vh;
+    min-height: 370px;
+    padding: 85px 20px 75px;
+    text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    text-align: center;
-    padding: 0 1.5rem;
-    background: radial-gradient(circle at center, #1e293b 0%, #0b0f19 100%);
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            #5735a8 0%,
+            transparent 45%
+        ),
+        linear-gradient(135deg, #19143c, #30205d, #15152f);
+
+    border-bottom: 1px solid #55418c;
 }
 
 .hero h1 {
-    font-size: 3.2rem;
-    margin-bottom: 0.75rem;
-    background: linear-gradient(135deg, #38bdf8, #818cf8);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-size: clamp(2.3rem, 6vw, 4.5rem);
     font-weight: 800;
+    letter-spacing: -2px;
+    margin-bottom: 18px;
+    color: #ffffff;
+    line-height: 1.2;
+    text-shadow: 0 4px 25px rgba(0, 0, 0, 0.25);
 }
 
 .hero p {
+    max-width: 650px;
     font-size: 1.15rem;
-    color: #94a3b8;
-    max-width: 600px;
+    color: #eee9ff;
 }
 
-/* Portfolio Container */
+/* =================================
+   PORTFOLIO CONTAINER
+================================= */
+
 .portfolio-container {
-    max-width: 1000px;
-    margin: 3rem auto 5rem;
-    padding: 0 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
+    width: min(1150px, 90%);
+    margin: 70px auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px;
+    scroll-margin-top: 25px;
 }
 
-/* Project Cards */
+/* =================================
+   PROJECT CARDS
+================================= */
+
 .project-card {
-    display: flex;
-    flex-direction: column;
-    background: #111827;
-    border-radius: 16px;
+    background: #211d3d;
+    border: 1px solid #50416e;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    transition: transform 0.3s ease, border-color 0.3s ease;
+
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+
+    animation: fadeUp 0.7s ease both;
+    animation-delay: calc(var(--order, 1) * 0.15s);
 }
 
 .project-card:hover {
-    border-color: rgba(56, 189, 248, 0.4);
-    transform: translateY(-4px);
+    transform: translateY(-10px);
+    border-color: #b59aff;
+
+    box-shadow: 0 20px 45px rgba(102, 68, 190, 0.25);
 }
 
-@media(min-width: 768px) {
-    .project-card {
-        flex-direction: row;
-        align-items: stretch;
-    }
-}
+/* =================================
+   PROJECT IMAGES
+================================= */
 
-/* Image Wrapper Layout & Fix */
 .project-image-wrapper {
-    width: 100%;
-    height: 240px;
+    height: 220px;
     overflow: hidden;
-    position: relative;
-    flex-shrink: 0;
-}
-
-@media(min-width: 768px) {
-    .project-image-wrapper {
-        width: 45%;
-        height: auto;
-        min-height: 260px;
-    }
+    background: #34285d;
 }
 
 .project-image-wrapper img {
@@ -96,67 +139,166 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+    transition: transform 0.5s ease;
 }
 
 .project-card:hover .project-image-wrapper img {
-    transform: scale(1.08);
+    transform: scale(1.07);
 }
 
-/* Project Card Content */
+/* =================================
+   PROJECT CONTENT
+================================= */
+
 .project-content {
-    padding: 2.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
+    padding: 25px;
 }
 
 .tag {
     display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #38bdf8;
-    background: rgba(56, 189, 248, 0.1);
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    margin-bottom: 0.75rem;
-    align-self: flex-start;
+    background: #41316c;
+    color: #e4d7ff;
+
+    border: 1px solid #8164bd;
+    padding: 6px 13px;
+
+    border-radius: 30px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+
+    margin-bottom: 17px;
 }
 
 .project-content h2 {
-    font-size: 1.5rem;
-    margin-bottom: 0.75rem;
-    color: #f1f5f9;
+    font-size: 1.35rem;
+    line-height: 1.4;
+    color: #ffffff;
+    margin-bottom: 14px;
 }
 
 .project-content p {
-    color: #94a3b8;
-    font-size: 0.95rem;
-    line-height: 1.7;
+    color: #e0dcf0;
+    font-size: 0.96rem;
 }
 
-/* Footer */
+/* =================================
+   ANIMATIONS
+================================= */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =================================
+   KEYBOARD ACCESSIBILITY
+================================= */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+    outline: 3px solid #ffd166;
+    outline-offset: 5px;
+}
+
+/* =================================
+   FOOTER
+================================= */
+
 .footer {
     text-align: center;
-    padding: 3rem 0;
-    color: #64748b;
-    background-color: #080c14;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 30px 20px;
+
+    background: #19152f;
+    border-top: 1px solid #55418c;
+
+    color: #e6e0f5;
+    font-size: 0.95rem;
 }
 
-/* Scroll Animation */
-.animate-on-scroll {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), 
-                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-    transition-delay: calc(var(--order) * 0.15s);
+/* =================================
+   TABLET RESPONSIVENESS
+================================= */
+
+@media (max-width: 900px) {
+
+    .portfolio-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+    }
+
+    .hero {
+        min-height: 320px;
+    }
 }
 
-.animate-on-scroll.in-view {
-    opacity: 1;
-    transform: translateY(0);
+/* =================================
+   MOBILE RESPONSIVENESS
+================================= */
+
+@media (max-width: 600px) {
+
+    .hero {
+        padding: 65px 20px;
+        min-height: 290px;
+    }
+
+    .hero h1 {
+        letter-spacing: -1px;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .portfolio-container {
+        grid-template-columns: 1fr;
+        width: 90%;
+        margin: 40px auto;
+        gap: 25px;
+    }
+
+    .project-image-wrapper {
+        height: 210px;
+    }
+
+    .project-content {
+        padding: 22px;
+    }
+}
+
+/* =================================
+   REDUCED MOTION ACCESSIBILITY
+================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .project-card:hover {
+        transform: none;
+    }
+
+    .project-card:hover .project-image-wrapper img {
+        transform: none;
+    }
 }
